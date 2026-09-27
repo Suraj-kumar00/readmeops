@@ -1,0 +1,52 @@
+name: readmeops
+description: Profile README cards rendered in your own repository. Nothing third-party loads when someone views your profile.
+author: Suraj-kumar00
+branding:
+  icon: activity
+  color: blue
+
+inputs:
+  look:
+    description: "terminal, clean, ops or playful."
+    required: false
+    default: clean
+  cards:
+    description: "Comma-separated cards, in any order: profile, stats, activity, upstream, languages, repos, writing."
+    required: false
+    default: profile, stats, activity, upstream, languages
+  headline:
+    description: One line about you. Defaults to the first part of your GitHub bio.
+    required: false
+    default: ""
+  programs:
+    description: Programs, communities or certifications, one per line (up to 4).
+    required: false
+    default: ""
+  blog:
+    description: RSS or Atom feed URL of your blog, for the writing card.
+    required: false
+    default: ""
+  user:
+    description: GitHub username to render. Defaults to the repository owner.
+    required: false
+    default: ""
+  token:
+    description: >-
+      Token for the GitHub API. Keep the default GITHUB_TOKEN: it reads public data only, and the
+      Action refuses to publish if a token can see anything private.
+    required: false
+    default: ${{ github.token }}
+  dry-run:
+    description: Render without pushing the readmeops branch.
+    required: false
+    default: "false"
+
+outputs:
+  changed:
+    description: '"true" when the cards changed and were pushed.'
+  files:
+    description: Newline-separated list of card files.
+
+runs:
+  using: node24
+  main: packages/action/dist/index.mjs

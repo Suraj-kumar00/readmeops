@@ -1,0 +1,29 @@
+{
+  "name": "readmeops-monorepo",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Profile README cards rendered in your own repository, plus the editor that sets them up.",
+  "license": "MIT",
+  "type": "module",
+  "workspaces": [
+    "packages/core",
+    "packages/action",
+    "apps/editor"
+  ],
+  "engines": {
+    "node": ">=22.18.0"
+  },
+  "scripts": {
+    "build": "npm run build -w @readmeops/action && npm run build -w @readmeops/editor",
+    "build:packages": "npm run build -w @readmeops/core && npm run build -w @readmeops/action",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "test": "npm run test --workspaces --if-present",
+    "looks": "node --conditions=readmeops-source scripts/render-looks.ts",
+    "audit:deps": "npm audit --audit-level=low"
+  },
+  "devDependencies": {
+    "typescript": "7.0.2",
+    "@types/node": "24.19.0",
+    "esbuild": "0.28.2"
+  }
+}

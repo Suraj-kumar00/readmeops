@@ -1,0 +1,31 @@
+{
+  "name": "@readmeops/core",
+  "version": "0.1.0",
+  "description": "Zero-dependency data collection and SVG rendering engine for readmeops.",
+  "license": "MIT",
+  "type": "module",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "readmeops-source": "./src/index.ts",
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "node --test --test-reporter=spec \"test/**/*.test.ts\""
+  },
+  "engines": {
+    "node": ">=20.9.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Suraj-kumar00/readmeops.git",
+    "directory": "packages/core"
+  }
+}

@@ -1,0 +1,10 @@
+node_modules/
+packages/core/dist/
+apps/editor/.next/
+apps/editor/next-env.d.ts
+*.tsbuildinfo
+.env
+.env*.local
+.vercel
+.DS_Store
+coverage/

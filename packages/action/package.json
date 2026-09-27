@@ -1,0 +1,16 @@
+{
+  "name": "@readmeops/action",
+  "version": "0.1.0",
+  "private": true,
+  "description": "GitHub Action entry point for readmeops (bundled into dist/index.mjs).",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "build": "esbuild src/main.ts --bundle --platform=node --target=node24 --format=esm --conditions=readmeops-source --outfile=dist/index.mjs --legal-comments=none --log-level=warning",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "node --conditions=readmeops-source --test --test-reporter=spec \"test/**/*.test.ts\""
+  },
+  "devDependencies": {
+    "@readmeops/core": "0.1.0"
+  }
+}
